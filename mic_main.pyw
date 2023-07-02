@@ -8,7 +8,13 @@ from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from random import randint
 from winotify import Notification, audio
 
-
+toast = Notification(app_id=f"{randint(0, 100)}",
+                     title=f"Автоматическая регулировка громкости микрофона",
+                     msg=f"Запуск программы",
+                     duration="short",
+                     icon=getcwd() + "\pyc.ico")
+toast.set_audio(audio.Mail, loop=False)
+toast.show()
 while True:
     devices = AudioUtilities.GetMicrophone()
     interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
