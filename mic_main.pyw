@@ -1,10 +1,14 @@
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
-from datetime import datetime
+# -*- coding: utf8 -*-
 from time import sleep
-from winotify import Notification, audio
+
+from comtypes import CLSCTX_ALL
+from datetime import datetime
 from os import getcwd
+from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from random import randint
+from winotify import Notification, audio
+
+
 while True:
     devices = AudioUtilities.GetMicrophone()
     interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
